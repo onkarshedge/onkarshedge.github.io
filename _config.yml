@@ -32,3 +32,5 @@ version: "Created using emerald template"
 custom_header: false
 custom_nav_footer: false
 reverse: false
+
+gems: [jekyll-paginate]
