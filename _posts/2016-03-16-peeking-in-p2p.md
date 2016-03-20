@@ -60,19 +60,45 @@ The second image is torrent file info with some infered information like number 
 ### Trackers 
 tracker is an HTTP service which enables peer to join a swarm and locate other peers.It does not provide the data. It accepts a GET request with following parameters
 
-* info_hash
-* peer_id
-* port
-* uploaded
-* downloaded
-* left
+#### Request
+
+* info_hash  
+  20-byte SHA1 hash value of the "info" key in metainfo file(.torrent)
+* peer_id  
+  20-byte peer ID.
+* port  
+  port number used by the torrent client
+* uploaded  
+  Total amount of bytes peer has uploaded
+* downloaded  
+  Total amount of bytes peer has downloaded
+* left  
+  Amount of bytes needed to complete
 * ip
-* numwant
-* event
+* numwant  
+  Number of peers it wants.
+* event  
+  started,stopped,completed
 
 Last three are optional. info_hash and peer_id have to be url encoded.
+
+#### Response
+
+* interval  
+  A peer must send regular GET requests to the tracker.time in seconds
+* leechers  
+  number of peers downloading and uploading i.e incomplete files
+* seeders  
+  number of peers with entire file
+* peers  
+  List of dictionaries with
+  * peer id
+  * peer ip
+  * peer port
+
 At this point I opened the torrent in transmission app and also started wireshark to sniff packets with filter ```http.request.method == "GET" ``` but there was no activity.Later searching on Internet I found that the udp tracker protocol is different.The abbove image shows that the trackers are udp service. According to the specification[2]
 
+#### UDP trackers
 There are four messages
 
 1. connect request
