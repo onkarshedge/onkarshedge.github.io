@@ -10,7 +10,7 @@ In Peer to Peer(P2P) systems there is no central server serving the data. The pe
 so let's have a look at Bittorrent protocol which is most widely used for file sharing.
 
 ## Bittorrent
-The detailed Bittorrent specification can be found here[0]. I don't want to create another same copy but I will provide some key visualizations to understand better.
+The detailed Bittorrent specification can be found here[1]. I don't want to create another same copy but I will provide some key visualizations to understand better.
 
 Some terms to know beforehand<br/>
 **peer** : A machine that participates in file sharing can upload and download.<br/>
@@ -163,6 +163,10 @@ Timeout's are handled with resend of request after waiting for incremental amoun
 
 Here is the video to demostrate.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WxX0AjqQ28g" frameborder="0" allowfullscreen></iframe>
+
+#### References
+1] https://wiki.theory.org/BitTorrentSpecification
+2] http://bittorrent.org/beps/bep_0015.html
 
 
 
